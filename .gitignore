@@ -1,0 +1,10 @@
+# Godot 4+ specific ignores
+.godot/*
+!.godot/extension_list.cfg
+
+/android/
+
+.zed/
+
+*.blend1
+*.mmcr
