@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dsrwx8fpsflex"]
+
+[ext_resource type="FontFile" uid="uid://dclpd75bnyiml" path="res://data/fonts/VT323-Regular.ttf" id="1_8ner6"]
+[ext_resource type="Texture2D" uid="uid://qr36evglx04r" path="res://textures/pda-icon-sheet.png" id="1_j5sov"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_542sn"]
+atlas = ExtResource("1_j5sov")
+
+[node name="pda_control" type="Control" unique_id=24379625]
+custom_minimum_size = Vector2(640, 480)
+custom_maximum_size = Vector2(640, 480)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -512.0
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="ColorRect" parent="." unique_id=1535185408]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14225578, 0.14225581, 0.14225578, 1)
+
+[node name="row_container" type="VBoxContainer" parent="." unique_id=937416979]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="pda_title" type="Label" parent="row_container" unique_id=510099526]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8ner6")
+theme_override_font_sizes/font_size = 48
+text = "ENTERPRISE PDA"
+horizontal_alignment = 1
+
+[node name="apps_grid" type="GridContainer" parent="row_container" unique_id=1166708522]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+columns = 2
+
+[node name="id" type="TextureButton" parent="row_container/apps_grid" unique_id=734942338]
+texture_filter = 1
+layout_mode = 2
+offset_transform_enabled = true
+texture_normal = SubResource("AtlasTexture_542sn")
+
+[node name="maintenance" type="TextureButton" parent="row_container/apps_grid" unique_id=1647639138]
+texture_filter = 1
+layout_mode = 2
+offset_transform_enabled = true
+texture_normal = SubResource("AtlasTexture_542sn")
+
+[node name="diagnostics" type="TextureButton" parent="row_container/apps_grid" unique_id=271489695]
+texture_filter = 1
+layout_mode = 2
+offset_transform_enabled = true
+texture_normal = SubResource("AtlasTexture_542sn")
+
+[node name="progress" type="TextureButton" parent="row_container/apps_grid" unique_id=1657431290]
+texture_filter = 1
+layout_mode = 2
+offset_transform_enabled = true
+texture_normal = SubResource("AtlasTexture_542sn")
