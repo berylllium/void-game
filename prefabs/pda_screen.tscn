@@ -1,10 +1,6 @@
 [gd_scene format=3 uid="uid://dsrwx8fpsflex"]
 
 [ext_resource type="FontFile" uid="uid://dclpd75bnyiml" path="res://data/fonts/VT323-Regular.ttf" id="1_8ner6"]
-[ext_resource type="Texture2D" uid="uid://qr36evglx04r" path="res://textures/pda-icon-sheet.png" id="1_j5sov"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_542sn"]
-atlas = ExtResource("1_j5sov")
 
 [node name="pda_control" type="Control" unique_id=24379625]
 custom_minimum_size = Vector2(640, 480)
@@ -49,26 +45,22 @@ size_flags_vertical = 4
 offset_transform_enabled = true
 columns = 2
 
-[node name="id" type="TextureButton" parent="row_container/apps_grid" unique_id=734942338]
+[node name="id" type="TextureButton" parent="row_container/apps_grid" unique_id=529116859]
 texture_filter = 1
 layout_mode = 2
 offset_transform_enabled = true
-texture_normal = SubResource("AtlasTexture_542sn")
 
-[node name="maintenance" type="TextureButton" parent="row_container/apps_grid" unique_id=1647639138]
+[node name="maintenance" type="TextureButton" parent="row_container/apps_grid" unique_id=1387448312]
 texture_filter = 1
 layout_mode = 2
 offset_transform_enabled = true
-texture_normal = SubResource("AtlasTexture_542sn")
 
-[node name="diagnostics" type="TextureButton" parent="row_container/apps_grid" unique_id=271489695]
+[node name="diagnostics" type="TextureButton" parent="row_container/apps_grid" unique_id=826552444]
 texture_filter = 1
 layout_mode = 2
 offset_transform_enabled = true
-texture_normal = SubResource("AtlasTexture_542sn")
 
-[node name="progress" type="TextureButton" parent="row_container/apps_grid" unique_id=1657431290]
+[node name="progress" type="TextureButton" parent="row_container/apps_grid" unique_id=631948191]
 texture_filter = 1
 layout_mode = 2
 offset_transform_enabled = true
-texture_normal = SubResource("AtlasTexture_542sn")
