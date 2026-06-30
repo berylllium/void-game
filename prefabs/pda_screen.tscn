@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://dsrwx8fpsflex"]
+
+[ext_resource type="FontFile" uid="uid://dclpd75bnyiml" path="res://data/fonts/VT323-Regular.ttf" id="1_8ner6"]
+[ext_resource type="Texture2D" uid="uid://qr36evglx04r" path="res://textures/pda-icon-sheet.png" id="2_8ner6"]
+[ext_resource type="Shader" uid="uid://d1pfx5gwywwqe" path="res://shaders/pda_screen_crt.gdshader" id="3_8dh2h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oh2cv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar2x3"]
+atlas = ExtResource("2_8ner6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h1jj"]
+atlas = ExtResource("2_8ner6")
+region = Rect2(17, 0, 14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw6pm"]
+atlas = ExtResource("2_8ner6")
+region = Rect2(34, 0, 14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sl57"]
+atlas = ExtResource("2_8ner6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lafug"]
+shader = ExtResource("3_8dh2h")
+shader_parameter/brightness = 1.18000005605
+shader_parameter/contrast = 1.08
+shader_parameter/saturation = 1.1
+shader_parameter/gamma = 1.05
+shader_parameter/curvature = 0.0550000026125
+shader_parameter/corner_soften = 0.06
+shader_parameter/vignette = 0.38
+shader_parameter/scanline_strength = 0.95
+shader_parameter/scanline_density = 0.63600000646
+shader_parameter/interlace_strength = 0.2030000096425
+shader_parameter/mask_strength = 0.22
+shader_parameter/mask_scale = 1.0
+shader_parameter/chroma_offset_px = 1.6
+shader_parameter/luma_smear_px = 2.2
+shader_parameter/jitter_px = 0.87200004142
+shader_parameter/wobble_px = 1.5
+shader_parameter/tape_noise = 0.22
+shader_parameter/tape_lines = 0.35
+shader_parameter/roll_speed = 0.1
+shader_parameter/roll_strength = 0.15
+shader_parameter/glow_strength = 0.25
+shader_parameter/glow_threshold = 0.65
+
+[node name="pda_control" type="Control" unique_id=24379625]
+custom_minimum_size = Vector2(640, 480)
+custom_maximum_size = Vector2(640, 480)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -512.0
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="ColorRect" parent="." unique_id=1535185408]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="row_container" type="VBoxContainer" parent="." unique_id=937416979]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="pda_title" type="Label" parent="row_container" unique_id=510099526]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8ner6")
+theme_override_font_sizes/font_size = 48
+text = "ENTERPRISE PDA"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="row_container" unique_id=183713607]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_oh2cv")
+
+[node name="apps_grid" type="GridContainer" parent="row_container" unique_id=1166708522]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
+columns = 2
+
+[node name="id" type="TextureButton" parent="row_container/apps_grid" unique_id=529116859]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+offset_transform_enabled = true
+texture_normal = SubResource("AtlasTexture_ar2x3")
+stretch_mode = 0
+
+[node name="maintenance" type="TextureButton" parent="row_container/apps_grid" unique_id=1387448312]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+offset_transform_enabled = true
+texture_normal = SubResource("AtlasTexture_8h1jj")
+stretch_mode = 0
+
+[node name="diagnostics" type="TextureButton" parent="row_container/apps_grid" unique_id=826552444]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+offset_transform_enabled = true
+texture_normal = SubResource("AtlasTexture_hw6pm")
+stretch_mode = 0
+
+[node name="progress" type="TextureButton" parent="row_container/apps_grid" unique_id=631948191]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+offset_transform_enabled = true
+texture_normal = SubResource("AtlasTexture_2sl57")
+stretch_mode = 0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2107995719]
+material = SubResource("ShaderMaterial_lafug")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
