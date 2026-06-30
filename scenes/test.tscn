@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://4kyl0hfd06bt" path="res://prefabs/player.tscn" id="5_j5jx5"]
 [ext_resource type="Environment" uid="uid://0hm7cmucog02" path="res://data/test_environment.tres" id="6_lpvoh"]
 [ext_resource type="PackedScene" uid="uid://dsrwx8fpsflex" path="res://prefabs/pda_screen.tscn" id="7_at5dv"]
-[ext_resource type="Texture2D" uid="uid://bnnpvid2j6ul1" path="res://textures/hand.png" id="8_jcd4p"]
+[ext_resource type="Texture2D" uid="uid://s5nsxh55rlmm" path="res://textures/hand2.png" id="8_jcd4p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jcd4p"]
 size = Vector3(10, 2, 2)
@@ -98,10 +98,10 @@ offset_bottom = 0.0
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1754289411]
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1475408599]
-position = Vector2(847, 244)
+position = Vector2(597, 298.99997)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_jcd4p")
 centered = false
-offset = Vector2(-1050, -1550)
+offset = Vector2(-50.32, 8.51)
 
 [editable path="test2"]

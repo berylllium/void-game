@@ -36,8 +36,15 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if in_mouse_mode and arm_sprite.visible:
-		var target_pos := get_viewport().get_mouse_position()
-		arm_sprite.position = arm_sprite.position.lerp(target_pos, 20.0 * delta)
+		var mouse_pos := get_viewport().get_mouse_position()
+		var screen_width := get_viewport().get_visible_rect().size.x
+		arm_sprite.position = arm_sprite.position.lerp(mouse_pos, 20.0 * delta)
+		var distance := mouse_pos.x - (screen_width * 0.7)
+		var max_rot := PI/6
+		var rot_c := max_rot / screen_width * 0.7 
+		var rot := distance * rot_c
+		arm_sprite.rotation = rot + deg_to_rad(33.0)
+		
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -55,7 +62,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		in_mouse_mode = false
 		arm_sprite.visible = false
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
+   
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			rotate_y(-event.relative.x * look_sensitivity)
