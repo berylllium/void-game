@@ -7,7 +7,7 @@ sky_top_color = Color(0.5082372, 0.6751078, 0.88458025, 1)
 sky_material = SubResource("ProceduralSkyMaterial_865hc")
 
 [resource]
-background_mode = 3
+background_mode = 2
 sky = SubResource("Sky_yx50r")
 glow_enabled = true
 glow_bloom = 0.56
