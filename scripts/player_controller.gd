@@ -16,26 +16,45 @@ extends CharacterBody3D
 @onready var stairs_ahead_raycast: RayCast3D = %stairs_ahead_raycast
 @onready var stairs_below_raycast: RayCast3D = %stairs_below_raycast
 
+@export var arm_sprite: Sprite2D
+
 var input_dir := Vector3.ZERO
 var cam_aligned_input_dir := Vector3.ZERO
 var headbob_time := 0.0
 var noclip := false
 var snapped_to_stairs_last_frame := false
 var last_frame_was_on_floor := -INF
+var in_mouse_mode := false
 
 const GRAVITY: float = 9.81
 const MAX_STEP_HEIGHT: float = 0.5
 
 
 func _ready() -> void:
-	pass
+	arm_sprite.visible = false
+
+
+func _process(delta: float) -> void:
+	if in_mouse_mode and arm_sprite.visible:
+		var target_pos := get_viewport().get_mouse_position()
+		arm_sprite.position = arm_sprite.position.lerp(target_pos, 20.0 * delta)
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and not in_mouse_mode:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	elif event.is_action_pressed("ui_cancel"):
+	elif event.is_action_pressed("ui_cancel") and not in_mouse_mode:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+	if event.is_action_pressed("player_jump"):
+		in_mouse_mode = true
+		arm_sprite.visible = true
+		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+
+	elif event.is_action_released("player_jump"):
+		in_mouse_mode = false
+		arm_sprite.visible = false
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
@@ -60,9 +79,6 @@ func handle_air_physics(delta: float) -> void:
 
 
 func handle_ground_physics(delta: float) -> void:
-	if Input.is_action_just_pressed("player_jump"):
-		self.velocity.y = jump_velocity
-
 	self.velocity.x = input_dir.x * get_move_speed()
 	self.velocity.z = input_dir.z * get_move_speed()
 

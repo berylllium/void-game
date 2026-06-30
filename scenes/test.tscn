@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://4kyl0hfd06bt" path="res://prefabs/player.tscn" id="5_j5jx5"]
 [ext_resource type="Environment" uid="uid://0hm7cmucog02" path="res://data/test_environment.tres" id="6_lpvoh"]
 [ext_resource type="PackedScene" uid="uid://dsrwx8fpsflex" path="res://prefabs/pda_screen.tscn" id="7_at5dv"]
+[ext_resource type="Texture2D" uid="uid://bnnpvid2j6ul1" path="res://textures/hand.png" id="8_jcd4p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jcd4p"]
 size = Vector3(10, 2, 2)
@@ -68,8 +69,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.05, -5)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="collisions/StaticBody3D5" unique_id=219152076]
 shape = SubResource("ConcavePolygonShape3D_ajshl")
 
-[node name="player" parent="." unique_id=1016393664 instance=ExtResource("5_j5jx5")]
+[node name="player" parent="." unique_id=1016393664 node_paths=PackedStringArray("arm_sprite") instance=ExtResource("5_j5jx5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3253702, 0)
+arm_sprite = NodePath("../CanvasLayer/Sprite2D")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1027738729]
 environment = ExtResource("6_lpvoh")
@@ -92,5 +94,14 @@ render_target_update_mode = 4
 [node name="pda_control" parent="Sprite3D/SubViewport" unique_id=24379625 instance=ExtResource("7_at5dv")]
 offset_right = 0.0
 offset_bottom = 0.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1754289411]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1475408599]
+position = Vector2(847, 244)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_jcd4p")
+centered = false
+offset = Vector2(-1050, -1550)
 
 [editable path="test2"]
